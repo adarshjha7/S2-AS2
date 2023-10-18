@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title>iEducate - Transforming Online Education</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+        a {
+            color: black;
+            text-decoration: dotted;
+            transition: font-size 0.3s ease, color 0.3s ease; /* Add a transition effect to font-size and color properties */
+
+        }
+
+        a:hover{
+            font-weight: bolder;
+            color: blue;
+        }
+
+        img{
+            transition: transform 0.3s ease; /* Add a transition effect to the transform property (scaling) */
+        }
+
+        img:hover {
+            transform: scale(1.2); /* Scale up the image by 20% when hovering */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .logo {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 46%;
+            height: 58%;
+            border: 3px solid white;
+            border-radius: 50px;
+            margin: 5px;
+            background-color: rgb(220 217 8);
+
+
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+
+        }
+
+        .nav-list {
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list li {
+            list-style: none;
+            padding: 26px 30px;
+        }
+
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .nav-list li a:hover {
+            color: rgb(197, 194, 194);
+        }
+
+        .rightNav {
+            width: 30%;
+            text-align: right;
+            padding: 0 23px;
+        }
+
+        #search {
+            padding: 5px;
+            font-size: 17px;
+            border: 2px solid grey;
+            border-radius: 9px;
+        }
+
+        .background {
+            background: rgba(0, 0, 0, 0.7) url('https://i.pinimg.com/236x/5c/80/f9/5c80f94ac30a312ea1e96a45d1999a86.jpg');
+            background-size: cover;
+            background-blend-mode: darken;
+            opacity: 6.9;
+        }
+
+        .firstSection {
+            height: 100vh;
+        }
+        
+        .box-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 50%;
+            margin: auto;
+            height: 80%;
+        }
+
+        .s2as2 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;
+            margin: 0px 45px -6px -185px;
+            padding: -27px;
+            transition: color 0.3sec ease;
+        }
+
+        .s2as2:hover {
+            color: rgb(16, 190, 33);
+            font-size: 50px;
+        }
+        
+        .firstHalf {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .secondHalf {
+            width: 30%;
+        }
+
+        .secondHalf img {
+            width: 70%;
+            border: 4px solid white;
+            border-radius: 150px;
+            display: block;
+            margin: auto;
+
+            height: 238px;
+            width: 137%;
+            border: 4px solid white;
+            border-radius: 55px;
+            display: block;
+            /* margin: 475px 70px 151px 90px; */
+            margin: 436px 180px 176px 100px;
+        }
+
+        .text-big {
+            font-size: 41px;
+            font-size: 43px;
+            font-weight: bolder;
+            margin: 4px 2px 28px -51px;
+            /* white-space: nowrap; */
+        }
+
+        .text-bi {
+
+            font-size: 41px;
+            font-size: 43px;
+            font-weight: bolder;
+            white-space: nowrap;
+            margin: 4px 2px 28px -251px;
+            color: #f1e6e6;
+            transition: font-size 0.3s ease, color 0.3s ease;
+            /* Add a transition effect to font-size and color properties */
+        }
+
+        .text-bi:hover {
+            font-size: 53px;
+            color: #c5ed12;
+            /* New color when hovering */
+        }
+
+
+        .text-small {
+            font-size: 18px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            margin: 7px 3px;
+            border: 2px solid white;
+            border-radius: 8px;
+            background: none;
+            color: white;
+            cursor: pointer;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 20px;
+        }
+
+        .btn-sm {
+            padding: 6px 10px;
+            vertical-align: middle;
+            font-size: 16px;
+        }
+
+        .btn-dark {
+            color: black;
+            border: 2px solid grey;
+
+        }
+
+        .btn:hover {
+            color: rgb(13, 227, 27);
+            border: 5px;
+            background-color: rgb(249, 249, 242);
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            max-width: 80%;
+            margin: auto;
+            font-family: 'Ubuntu', sans-serif;
+            padding: 10px;
+        }
+
+        .section-left {
+            flex-direction: row-reverse;
+        }
+
+        .paras {
+            padding: 0px 65px;
+        }
+
+        .sectionTag {
+            padding: 16px 0;
+        }
+
+        .sectionSubTag {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .thumbnail img {
+            width: 250px;
+            border: 2px solid black;
+            border-radius: 26px;
+            margin-top: 19px;
+        }
+
+        .contact {
+            /* background: url("https://i.pinimg.com/236x/db/81/06/db81068a0199a1169009ab87b9407803.jpg"); */
+            background-color: #b6c4af;
+            background-repeat: no-repeat;
+            background-size:cover;
+            opacity: 10.8;
+            height: 833px;
+        }
+
+        .text-center {
+
+            text-align: center;
+            padding-top: 30px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 35px;
+        }
+
+        .form {
+            max-width: 62%;
+            margin: 25px auto;
+        }
+
+        .form-input {
+            margin: 14px 0;
+            padding: 5px 13px;
+            width: 100%;
+            font-size: 19px;
+            border: 2px solid grey;
+            border-radius: 6px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .text-footer {
+            text-align: center;
+            padding: 30px 0;
+            font-family: 'Ubuntu', sans-serif;
+            display: flex;
+            justify-content: center;
+            color: white;
+
+        }
+
+        .burger {
+            display: none;
+            position: absolute;
+            cursor: pointer;
+            right: 5%;
+            top: 15px;
+        }
+
+        .line {
+            width: 33px;
+            background-color: white;
+            height: 4px;
+            margin: 5px 3px;
+        }
+
+        #billion {
+            white-space: nowrap;
+            font-weight: bolder;
+            font-weight: bolder;
+            margin: 40px 0px 0px -17px;
+            font-size: larger;
+            padding: 19px 42px 8px 10px;
+        }
+
+        @media only screen and (max-width: 1140px) {
+            .nav-list {
+                flex-direction: column;
+            }
+
+            .navbar {
+                height: 447px;
+                flex-direction: column;
+                transition: all 0.7s ease-out;
+            }
+
+            .rightNav {
+                text-align: center;
+            }
+
+            .box-main {
+                flex-direction: column-reverse;
+                max-width: 100%;
+            }
+
+            #search {
+                width: 100%;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .h-nav-resp {
+                height: 72px;
+            }
+
+            .v-class-resp {
+                opacity: 0;
+            }
+
+            .section {
+                flex-direction: column-reverse;
+                background-color: #c5ed12;
+            }
+
+            .text-small {
+                text-align: center;
+            }
+
+            .text-big {
+                text-align: center;
+                font-size: 43px;
+                font-weight: bolder;
+                margin: 4px 2px 28px -51px;
+            }
+
+            .buttons {
+                text-align: center;
+            }
+
+            .paras {
+                padding: 0px;
+            }
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar background h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo"><img
+                    src="https://imgs.search.brave.com/ub88fZchfNFQFtkX-FcxWGn0BNi4hEEz5q9iVzgvGbo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zaWgu/Z292LmluL2ltZy9s/b2dvLnBuZw"
+                    alt="logo"></div>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">Services</a></li>
+            <li><a href="#services">Proctor</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="rightNav v-class-resp">
+            <input type="text" name="search" id="search">
+            <button class="btn btn-sm">Search</button>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <section class="background firstSection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <p class="text-bi">Smart Specially abled Student Assistance System.<br>
+                <div class="s2as2">"S2-AS2"</p>
+                </div>
+                <section id="billion">In this world of 7 billion people we are,<br> "Guardian Pendant: Shielding the
+                    Vulnerable, Empowering the Brave."
+                    </p>
+                </section>
+            </div>
+
+            <div class="secondHalf">
+                <img src="https://i.pinimg.com/236x/ae/9e/ff/ae9eff5950cba4f2fee50492e7073155.jpg">
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="paras">
+            <a href="healthcare.html">
+                <p class="sectionTag text-big">HealthCare</p>
+                <p class="sectionSubTag text-small">We provide special medical care to students with unique needs,
+                    making
+                    sure they stay healthy and can focus on learning.
+                    In our commitment to provide holistic support, we offer specialized healthcare services tailored to
+                    the
+                    unique needs of specially abled students. Our healthcare platform ensures accessible and top-notch
+                    medical care, promoting their well-being and enhancing their educational journey.
+
+
+                </p>
+        </div>
+        <div class="thumbnail">
+            <img src="https://i.pinimg.com/236x/c3/74/5c/c3745cc83a7317b0b8ed6975eeb6aac2.jpg" alt="laptop image"
+                class="imgFluid">
+        </div>
+        </a>
+    </section>
+
+    <section class="section section-left" id="about">
+        <div class="paras">
+            <a href="Organization.html">
+                <p class="sectionTag text-big">Organization</p>
+                <p class="sectionSubTag text-small">Advocacy plays a crucial role in creating an inclusive educational
+                    ecosystem. We collaborate with organizations and advocate for policies that promote inclusivity,
+                    equal
+                    opportunities, and accessibility for specially abled students. Together, we work towards breaking
+                    down
+                    barriers to education.
+
+
+
+                </p>
+        </div>
+        <div class="thumbnail">
+            <img src="https://i.pinimg.com/236x/05/d8/bb/05d8bbb09b1e4a329e5d34896452de3e.jpg" alt="laptop image"
+                class="imgFluid">
+        </div>
+        </a>
+    </section>
+
+    <section class="section" id="services">
+        <div class="paras">
+            <a href="police.html">
+                <p class="sectionTag text-big">Police</p>
+                <p class="sectionSubTag text-small">Safety is paramount for every student, and specially abled students
+                    are
+                    no exception. Our dedicated police support system is designed to swiftly respond to any safety
+                    concerns,
+                    ensuring a secure learning environment. We believe in empowering students by making them feel
+                    protected
+                    and heard.
+                </p>
+        </div>
+        <div class="thumbnail">
+            <img src="https://i.pinimg.com/564x/20/45/7d/20457d87687436e8d7f4d238bcd8dfc1.jpg" alt="laptop image"
+                class="imgFluid">
+        </div>
+        </a>
+    </section>
+
+    <section class="section section-left" id="services">
+        <div class="paras">
+            <a href="Proctor.html">
+                <p class="sectionTag text-big">Proctor</p>
+                <p class="sectionSubTag text-small">Fair assessments are essential to gauge a student's progress
+                    accurately.
+                    Our proctoring solutions ensure a level playing field for specially abled students during exams and
+                    assessments. We prioritize fairness and integrity in the evaluation process.
+
+
+                </p>
+
+        </div>
+        <div class="thumbnail">
+            <img src="https://i.pinimg.com/236x/7a/c0/7c/7ac07c17d621c6b023cf9a6235d7d57a.jpg" alt="laptop image"
+                class="imgFluid">
+        </div>
+        </a>
+    </section>
+
+    <section class="contact" id="contact">
+        <h1 class="text-center">Contact Us</h1>
+        <div class="form">
+            <input class="form-input" type="text" name="name" id="name" placeholder="Enter Your name">
+            <input class="form-input" type="text" name="phone" id="phone" placeholder="Enter Your Phone">
+            <input class="form-input" type="email" name="email" id="email" placeholder="Enter Your email">
+            <textarea class="form-input" name="text" id="text" cols="30" rows="10"
+                placeholder="Ellaborate your concern"></textarea>
+            <button class="btn btn-sm btn-dark">Submit</button>
+        </div>
+    </section>
+
+    <footer class="background">
+        <p class="text-footer">
+            Copyright &copy; www.S2AS2.com. All rights reserved!
+        </p>
+    </footer>
+    </div>
+</body>
+
+</html>

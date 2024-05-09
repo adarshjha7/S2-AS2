@@ -1,21 +1,18 @@
-import cv2
-import os
+import numpy as np
+import cv2 
 from twilio.rest import Client
 
-# Replace 'your_twilio_account_sid' and 'your_twilio_auth_token' with your Twilio credentials
-account_sid = 'ACd9ec9e091bb4562a670c0e2d5741ac83'
-auth_token = 'dffda1157e9f03ae0bfd8f7e08fbe49b'
-
-# Initialize the Twilio client
+# Twilio credentials
+account_sid = 'ACcbf4195860d9d7859aeb8eb3cdfa6ccd'
+auth_token = '422258a117fe51a32929fd360b3effc7'
 client = Client(account_sid, auth_token)
 
 # Function to initiate a voice call using Twilio
 def initiate_voice_call():
     try:
-        # Replace 'your_phone_number' with the recipient's phone number and '+1' with the appropriate country code
         call = client.calls.create(
             to='+917355578308',  # Recipient's phone number
-            from_='+19183763907',  # Your Twilio phone number
+            from_='+14326140859',  # Your Twilio phone number
             url='http://demo.twilio.com/docs/voice.xml'  # TwiML URL or call instructions
         )
         print(f"Voice call initiated successfully. Call SID: {call.sid}")
@@ -25,43 +22,39 @@ def initiate_voice_call():
 # Function to send an SMS with a message
 def send_sms_with_message():
     try:
-        # Replace 'your_phone_number' with the recipient's phone number and '+1' with the appropriate country code
         message = client.messages.create(
             to='+917355578308',  # Recipient's phone number
-            from_='+19183763907',  # Your Twilio phone number
-            body='S2AS2 MESSAGE NOTIFICATION : https://drive.google.com/drive/folders/19VPnbmldmFoj8jQyML9GTFqCrxqdqTz2?usp=sharing',  # SMS message body
-            # media_url='https://drive.google.com/drive/folders/19VPnbmldmFoj8jQyML9GTFqCrxqdqTz2?usp=sharing'
+            from_='+14326140859',  # Your Twilio phone number
+            body='sPa-s MESSAGE NOTIFICATION : https://drive.google.com/drive/u/1/folders/1oQ5z-Pnlp9V0KKdi0wKIbvRJlFQ5vpwK',
         )
         print(f"SMS sent successfully. Message SID: {message.sid}")
     except Exception as e:
         print(f"Error sending SMS: {str(e)}")
 
-# Checks and deletes the output file
-# You can't have an existing file, or it will throw an error
-FILE_OUTPUT = 'output.mp4'
-if os.path.isfile(FILE_OUTPUT):
-    os.remove(FILE_OUTPUT)
+# Open the camera
+cap = cv2.VideoCapture(0)
 
-# Capture video from webcam
-vid_capture = cv2.VideoCapture(0)
-vid_cod = cv2.VideoWriter_fourcc(*'XVID')
-output = cv2.VideoWriter(FILE_OUTPUT, vid_cod, 20.0, (640, 480))  # capture video into file....
+# Define the codec and create VideoWriter object
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
 
-while True:
-    # Capture each frame of webcam video
-    ret, frame = vid_capture.read()
-    cv2.imshow("My cam video", frame)
-    output.write(frame)
-
-    # Check if the camera just started recording and initiate a voice call and send an SMS
-    if cv2.waitKey(1) & 0xFF == ord('x'):
-        send_sms_with_message()  # Send SMS before or after the voice call
-        initiate_voice_call()
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    if ret == True:
+        out.write(frame)
+        cv2.imshow('output', frame)
+        
+        # Break loop on 'q' key press
+        if cv2.waitKey(100) & 0xFF == ord('q'):
+            break
+    else:
         break
 
-# Close the already opened camera
-vid_capture.release()
-# Close the already opened file
-output.release()
-# Close the window and de-allocate any associated memory usage
+# Release camera and video writer resources
+cap.release()
+out.release()
 cv2.destroyAllWindows()
+
+# After camera loop, initiate voice call and send SMS
+initiate_voice_call()
+send_sms_with_message()

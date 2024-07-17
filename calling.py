@@ -3,8 +3,8 @@ import cv2
 from twilio.rest import Client
 
 # Twilio credentials
-account_sid = 'ACcbf4195860d9d7859aeb8eb3cdfa6ccd'
-auth_token = '422258a117fe51a32929fd360b3effc7'
+account_sid = 'Enter_your_id'
+auth_token = 'Enter_your_token'
 client = Client(account_sid, auth_token)
 
 # Function to initiate a voice call using Twilio
